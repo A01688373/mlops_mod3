@@ -70,18 +70,17 @@ if __name__ == "__main__":
     
     logistic_regression_model = stroke_data_pipeline.fit_logistic_regression(X_train, y_train)
 
-    print('HOLAAAAAAAAAAAAAAAAAAAAAAAAA1111:',X_test)
-    ##X_test = stroke_data_pipeline.PIPELINE.fit_transform(X_test)
-    ##print('HOLAAAAAAAAAAAAAAAAAAAAAAAAA2222:',X_test)
-    ##X_test = X_test.drop(['gender','ever_married','work_type','Residence_type','smoking_status'], axis=1)
-    ##y_pred = logistic_regression_model.predict(X_test)
+    X_test = stroke_data_pipeline.PIPELINE.fit_transform(X_test)
     
-    ##class_pred = logistic_regression_model.predict(X_test)
-    ##proba_pred = logistic_regression_model.predict_proba(X_test)[:,1]
-    ##print(f'test roc-auc : {roc_auc_score(y_test, proba_pred)}')
-    ##print(f'test accuracy: {accuracy_score(y_test, class_pred)}')
+    ##X_test = X_test.drop(['gender','ever_married','work_type','Residence_type','smoking_status'], axis=1)
+    y_pred = logistic_regression_model.predict(X_test)
+    
+    class_pred = logistic_regression_model.predict(X_test)
+    proba_pred = logistic_regression_model.predict_proba(X_test)[:,1]
+    print(f'test roc-auc : {roc_auc_score(y_test, proba_pred)}')
+    print(f'test accuracy: {accuracy_score(y_test, class_pred)}')
     
     # # Save the model using joblib
-    ##save_path = TRAINED_MODEL_DIR + PIPELINE_SAVE_FILE
-    ##joblib.dump(logistic_regression_model, save_path)
-    ##print(f"Model saved in {save_path}")
+    save_path = TRAINED_MODEL_DIR + PIPELINE_SAVE_FILE
+    joblib.dump(logistic_regression_model, save_path)
+    print(f"Model saved in {save_path}")
