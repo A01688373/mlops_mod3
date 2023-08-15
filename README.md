@@ -24,4 +24,4 @@ This deliverable must comply with the following guidelines:
 
 For the execution of the model it is required to install the following requirements in the virtual environments:
 
-requirements-vev.txt
+requirements-venv.txt
