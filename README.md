@@ -1,7 +1,7 @@
 # Deliverable: Refactoring
 
-Instructor: Carlos Mejia
-Student: Gabriela Sánchez
+### Instructor: Carlos Mejia
+### Student: Gabriela Sánchez
 
 This deliverable must comply with the following guidelines:
 
@@ -24,4 +24,5 @@ This deliverable must comply with the following guidelines:
 
 For the execution of the model it is required to install the following requirements in the virtual environments:
 
-requirements-venv.txt
+file --> "requirements-venv.txt"
+write in console --> pip install -r requirements.txt
