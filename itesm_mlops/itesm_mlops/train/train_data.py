@@ -76,12 +76,14 @@ class StrokeDataPipeline:
         
         pipeline = self.create_pipeline()
         pipeline.fit(X_train, y_train)
-        print(X_train)
+        
         ##X_train = transformations_pipeline.fit_transform(X_train)
         pipeline.transform(X_train)
-        ##X_train.drop(['gender','ever_married','work_type','Residence_type','smoking_status'], axis=1)
+        X_train2 = pipeline.transform(X_train)
+        X_train2 = X_train2.drop(['gender','ever_married','work_type','Residence_type','smoking_status','gender_Other'], axis=1)
         ##logistic_regression.fit(X_train, y_train)
-        logistic_regression.fit(pipeline.transform(X_train), y_train)
+        logistic_regression.fit(X_train2, y_train)
+        ##logistic_regression.fit(pipeline.transform(X_train), y_train)
         return logistic_regression
     
     def transform_test_data(self, X_test):
@@ -95,5 +97,7 @@ class StrokeDataPipeline:
         - transformed_data (pandas.DataFrame or numpy.ndarray): The preprocessed test data.
         """
         pipeline = self.create_pipeline()
-        X_test.drop(['gender','ever_married','work_type','Residence_type','smoking_status'], axis=1)
-        return pipeline.transform(X_test)
+        X_test2 = pipeline.transform(X_test)
+        X_test2 = X_test2.drop(['gender','ever_married','work_type','Residence_type','smoking_status'], axis=1)
+        ##return pipeline.transform(X_test)
+        return X_test2
