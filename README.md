@@ -21,3 +21,7 @@ This deliverable must comply with the following guidelines:
     - Modularization of code to be able to be instantiated from other scripts using classes.
     - Use of Custom Transformers
     - Data pipeline that uses Custom Transformers
+
+For the execution of the model it is required to install the following requirements in the virtual environments:
+
+requirements-vev.txt
